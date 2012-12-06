@@ -18,7 +18,7 @@ public class Hello extends HttpServlet {
      * Default constructor. 
      */
     public Hello() {
-        // TODO Auto-generated constructor stub
+        // test comm
     }
 
 	/**
