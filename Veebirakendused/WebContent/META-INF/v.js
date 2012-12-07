@@ -3,6 +3,8 @@ function v(id) {
 		 var vid = 'v' + i;
 	     if (i == id) {
              showhide = 'block';
+             var txt=document.getElementById(vid)
+             txt.innerHTML='<img src=\"'+vid+'.png\">';
         }
         else {
              showhide = 'none';
