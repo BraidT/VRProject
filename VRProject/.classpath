@@ -16,5 +16,7 @@
 	<classpathentry kind="lib" path="C:/Users/Braid/Downloads/jsp_jdbc_libs/commons-dbutils-1.5.jar"/>
 	<classpathentry kind="lib" path="C:/Users/Braid/Downloads/jsp_jdbc_libs/hsqldb.jar"/>
 	<classpathentry kind="lib" path="C:/Users/Braid/Downloads/jsp_jdbc_libs/jstl-1.2.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Braid/Downloads/libs/jstl-1.2.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Braid/Downloads/libs/servlet-api.jar"/>
 	<classpathentry kind="output" path="build/classes"/>
 </classpath>
