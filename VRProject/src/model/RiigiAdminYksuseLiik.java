@@ -10,7 +10,7 @@ public class RiigiAdminYksuseLiik {
 	private String muutja;
 	private Date muudetud;
 	private String sulgeja;
-	private String suletud;
+	private Date suletud;
 	private String kood;
 	private String nimetus;
 	private String kommentaar;
@@ -55,10 +55,10 @@ public class RiigiAdminYksuseLiik {
 	public void setSulgeja(String sulgeja) {
 		this.sulgeja = sulgeja;
 	}
-	public String getSuletud() {
+	public Date getSuletud() {
 		return suletud;
 	}
-	public void setSuletud(String suletud) {
+	public void setSuletud(Date suletud) {
 		this.suletud = suletud;
 	}
 	public String getKood() {

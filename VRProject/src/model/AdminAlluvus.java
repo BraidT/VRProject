@@ -9,10 +9,12 @@ public class AdminAlluvus {
 	private String muutja;
 	private Date muudetud;
 	private String sulgeja;
-	private String suletud;
-	private String kommentaar;
+	private Date suletud;
 	private Date alates;
 	private Date kuni;
+	private Integer riigi_admin_yksuse_id;
+	private Integer riigi_admin_yksuse_alluva_id;
+	private String kommentaar;
 	
 	public int getId() {
 		return id;
@@ -50,10 +52,10 @@ public class AdminAlluvus {
 	public void setSulgeja(String sulgeja) {
 		this.sulgeja = sulgeja;
 	}
-	public String getSuletud() {
+	public Date getSuletud() {
 		return suletud;
 	}
-	public void setSuletud(String suletud) {
+	public void setSuletud(Date suletud) {
 		this.suletud = suletud;
 	}
 	public String getKommentaar() {
@@ -73,5 +75,17 @@ public class AdminAlluvus {
 	}
 	public void setKuni(Date kuni) {
 		this.kuni = kuni;
+	}
+	public Integer getRiigi_admin_yksuse_id() {
+		return riigi_admin_yksuse_id;
+	}
+	public void setRiigi_admin_yksuse_id(int riigi_admin_yksuse_id) {
+		this.riigi_admin_yksuse_id = riigi_admin_yksuse_id;
+	}
+	public Integer getRiigi_admin_yksuse_alluva_id() {
+		return riigi_admin_yksuse_alluva_id;
+	}
+	public void setRiigi_admin_yksuse_alluva_id(int riigi_admin_yksuse_alluva_id) {
+		this.riigi_admin_yksuse_alluva_id = riigi_admin_yksuse_alluva_id;
 	}
 }

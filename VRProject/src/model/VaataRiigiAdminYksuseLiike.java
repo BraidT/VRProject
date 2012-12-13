@@ -16,26 +16,26 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.apache.commons.dbutils.DbUtils;
 
-import model.AdminAlluvus;
+import model.RiigiAdminYksuseLiik;
 
 /**
- * Servlet implementation class VaataAdminAlluvusi
+ * Servlet implementation class VaataRiigiAdminYksuseLiike
  */
 
-public class VaataAdminAlluvusi extends HttpServlet {
+public class VaataRiigiAdminYksuseLiike extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		List<AdminAlluvus> alluvused = null;
+		List<RiigiAdminYksuseLiik> liigid = null;
 		try {
-			 alluvused = vaataAlluvusi();
+			 liigid = vaataLiike();
 		} catch (SQLException e) {
 			throw new RuntimeException(e);
 		}
 
-		request.setAttribute("alluvused", alluvused);
-		request.getRequestDispatcher("VaataAdminAlluvusi.jsp").forward(request, response);
+		request.setAttribute("liigid", liigid);
+		request.getRequestDispatcher("VaataRiigiAdminYksuseLiike.jsp").forward(request, response);
 		
 	}
 
@@ -47,9 +47,9 @@ public class VaataAdminAlluvusi extends HttpServlet {
 		}
 	}
 	
-	private List<AdminAlluvus> vaataAlluvusi() throws SQLException {
+	private List<RiigiAdminYksuseLiik> vaataLiike() throws SQLException {
 		
-		List<AdminAlluvus> alluvused = new ArrayList<AdminAlluvus>();
+		List<RiigiAdminYksuseLiik> liigid = new ArrayList<RiigiAdminYksuseLiik>();
 		
 		Connection conn = DriverManager
 				.getConnection("jdbc:hsqldb:file:x://ITK//Java//Veebirakendused//DB//Projekt;shutdown=true");
@@ -58,27 +58,25 @@ public class VaataAdminAlluvusi extends HttpServlet {
 		ResultSet rset = null;
 		try {
 			stmt = conn.createStatement();
-			rset = stmt.executeQuery("select * from ADMIN_ALLUVUS");
+			rset = stmt.executeQuery("select * from RIIGI_ADMIN_YKSUSE_LIIK");
 
 			while (rset.next()) {
-				AdminAlluvus alluvus = new AdminAlluvus();
-				alluvus.setId(rset.getInt(1));
-				alluvus.setAvaja(rset.getString(2));
-				alluvus.setAvatud(rset.getDate(3));
-				alluvus.setMuutja(rset.getString(4));
-				alluvus.setMuudetud(rset.getDate(5));
-				alluvus.setSulgeja(rset.getString(6));
-				alluvus.setSuletud(rset.getDate(7));
-				alluvus.setAlates(rset.getDate(8));
-				alluvus.setKuni(rset.getDate(9));
-				alluvus.setKommentaar(rset.getString(10));
-				alluvus.setRiigi_admin_yksuse_id(rset.getInt(11));
-				alluvus.setRiigi_admin_yksuse_alluva_id(rset.getInt(12));
+				RiigiAdminYksuseLiik liik = new RiigiAdminYksuseLiik();
+				liik.setId(rset.getInt(1));
+				liik.setAvaja(rset.getString(2));
+				liik.setAvatud(rset.getDate(3));
+				liik.setMuutja(rset.getString(4));
+				liik.setMuudetud(rset.getDate(5));
+				liik.setSulgeja(rset.getString(6));
+				liik.setSuletud(rset.getDate(7));
+				liik.setKood(rset.getString(8));
+				liik.setNimetus(rset.getString(9));
+				liik.setKommentaar(rset.getString(10));
 				
-				alluvused.add(alluvus);
+				liigid.add(liik);
 			}
 
-			return alluvused;
+			return liigid;
 			
 		} finally {
 			DbUtils.closeQuietly(rset);

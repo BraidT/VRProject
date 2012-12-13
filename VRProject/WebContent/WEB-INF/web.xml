@@ -34,4 +34,34 @@
     <servlet-name>VaataAdminAlluvusi</servlet-name>
     <url-pattern>/VaataAdminAlluvusi</url-pattern>
   </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>VaataRiigiAdminYksusi</servlet-name>
+    <url-pattern>/VaataRiigiAdminYksusi</url-pattern>
+  </servlet-mapping>
+     <servlet>
+    <description></description>
+    <display-name>VaataRiigiAdminYksusi</display-name>
+    <servlet-name>VaataRiigiAdminYksusi</servlet-name>
+    <servlet-class>model.VaataRiigiAdminYksusi</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>VaataRiigiAdminYksuseLiike</servlet-name>
+    <url-pattern>/VaataRiigiAdminYksuseLiike</url-pattern>
+  </servlet-mapping>
+     <servlet>
+    <description></description>
+    <display-name>VaataRiigiAdminYksuseLiike</display-name>
+    <servlet-name>VaataRiigiAdminYksuseLiike</servlet-name>
+    <servlet-class>model.VaataRiigiAdminYksuseLiike</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>VaataVoimalikeAlluvusi</servlet-name>
+    <url-pattern>/VaataVoimalikeAlluvusi</url-pattern>
+  </servlet-mapping>
+     <servlet>
+    <description></description>
+    <display-name>VaataVoimalikeAlluvusi</display-name>
+    <servlet-name>VaataVoimalikeAlluvusi</servlet-name>
+    <servlet-class>model.VaataVoimalikeAlluvusi</servlet-class>
+  </servlet>
 </web-app>

@@ -16,13 +16,13 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.apache.commons.dbutils.DbUtils;
 
-import model.AdminAlluvus;
+import model.VoimalikAlluvus;
 
 /**
- * Servlet implementation class VaataAdminAlluvusi
+ * Servlet implementation class VaataVoimalikeAlluvusi
  */
 
-public class VaataAdminAlluvusi extends HttpServlet {
+public class VaataVoimalikeAlluvusi extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -35,7 +35,7 @@ public class VaataAdminAlluvusi extends HttpServlet {
 		}
 
 		request.setAttribute("alluvused", alluvused);
-		request.getRequestDispatcher("VaataAdminAlluvusi.jsp").forward(request, response);
+		request.getRequestDispatcher("VaataVoimalikeAlluvusi.jsp").forward(request, response);
 		
 	}
 

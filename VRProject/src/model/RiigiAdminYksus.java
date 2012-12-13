@@ -9,12 +9,14 @@ public class RiigiAdminYksus {
 	private String muutja;
 	private Date muudetud;
 	private String sulgeja;
-	private String suletud;
+	private Date suletud;
 	private String kood;
 	private String nimetus;
 	private String kommentaar;
 	private Date alates;
 	private Date kuni;
+	private int riigi_admin_yksuse_liik_id;
+	
 	public int getId() {
 		return id;
 	}
@@ -51,10 +53,10 @@ public class RiigiAdminYksus {
 	public void setSulgeja(String sulgeja) {
 		this.sulgeja = sulgeja;
 	}
-	public String getSuletud() {
+	public Date getSuletud() {
 		return suletud;
 	}
-	public void setSuletud(String suletud) {
+	public void setSuletud(Date suletud) {
 		this.suletud = suletud;
 	}
 	public String getKood() {
@@ -86,5 +88,12 @@ public class RiigiAdminYksus {
 	}
 	public void setKuni(Date kuni) {
 		this.kuni = kuni;
+	}
+	public Integer getRiigi_admin_yksuse_liik_id() {
+		return riigi_admin_yksuse_liik_id;
+	}
+	public void setRiigi_admin_yksuse_liik_id(int riigi_admin_yksuse_liik_id) {
+		
+		this.riigi_admin_yksuse_liik_id = riigi_admin_yksuse_liik_id;
 	}
 }

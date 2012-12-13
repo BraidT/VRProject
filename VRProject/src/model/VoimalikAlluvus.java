@@ -11,6 +11,8 @@ public class VoimalikAlluvus {
 	private String sulgeja;
 	private String suletud;
 	private String kommentaar;
+	private Integer riigi_admin_yksuse_id;
+	private Integer riigi_admin_yksuse_alluva_id;
 	
 	public int getId() {
 		return id;
@@ -60,5 +62,16 @@ public class VoimalikAlluvus {
 	public void setKommentaar(String kommentaar) {
 		this.kommentaar = kommentaar;
 	}
+	public Integer getRiigi_admin_yksuse_id() {
+		return riigi_admin_yksuse_id;
+	}
+	public void setRiigi_admin_yksuse_id(int riigi_admin_yksuse_id) {
+		this.riigi_admin_yksuse_id = riigi_admin_yksuse_id;
+	}
+	public Integer getRiigi_admin_yksuse_alluva_id() {
+		return riigi_admin_yksuse_alluva_id;
+	}
+	public void setRiigi_admin_yksuse_alluva_id(int riigi_admin_yksuse_alluva_id) {
+		this.riigi_admin_yksuse_alluva_id = riigi_admin_yksuse_alluva_id;
+	}
 }
-
