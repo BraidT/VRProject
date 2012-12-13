@@ -16,7 +16,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.apache.commons.dbutils.DbUtils;
 
-import model.VoimalikAlluvus;
+import model.VaataVoimalikeAlluvusi;
 
 /**
  * Servlet implementation class VaataVoimalikeAlluvusi
