@@ -12,11 +12,12 @@
    <a href='./'><img src='pildid/ITK.png' align='right'></a>
    <div id="vorm">
    		<ul>
-	   		<li><a href='#' onclick='javascript:v(1)'>V1 - Admin üksuse liigi redaktor.jpg</a></li>
-			<li><a href='#' onclick='javascript:v(2)'>V2 - Admin üksuse redaktor.jpg</a></li>
-			<li><a href='#' onclick='javascript:v(3)'>V3 - Admin üksuste alluvusraport.jpg</a></li>
-			<li><a href='#' onclick='javascript:v(4)'>V4 - Admin üksuse liigi struktuuri vaade (pilt puudub)</a></li>
-			<li><a href='#' onclick='javascript:v(5)'>V5 - Avaleht menüüga (pilt puudub)</a></li>
+	   		<li><a href='#' onmouseover='javascript:v(1)'>V1 - Admin üksuse liigi redaktor.jpg</a></li>
+			<li><a href='#' onmouseover='javascript:v(2)'>V2 - Admin üksuse redaktor.jpg</a></li>
+			<li><a href='#' onmouseover='javascript:v(3)'>V3 - Admin üksuste alluvusraport.jpg</a></li>
+			<li><a href='#' onmouseover='javascript:v(4)'>V4 - Admin üksuse liigi struktuuri vaade (pilt puudub)</a></li>
+			<li><a href='#' onmouseover='javascript:v(5)'>V5 - Avaleht menüüga (pilt puudub)</a></li>
+			<li><a href='VaataAdminAlluvusi'>VaataAdminAlluvusi</a>uus!</li>
 		</ul>
    <div id="v1"></div>
    <div id="v2"></div>
