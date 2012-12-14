@@ -38,7 +38,7 @@
     <servlet-name>VaataRiigiAdminYksusi</servlet-name>
     <url-pattern>/VaataRiigiAdminYksusi</url-pattern>
   </servlet-mapping>
-     <servlet>
+  <servlet>
     <description></description>
     <display-name>VaataRiigiAdminYksusi</display-name>
     <servlet-name>VaataRiigiAdminYksusi</servlet-name>
@@ -48,7 +48,7 @@
     <servlet-name>VaataRiigiAdminYksuseLiike</servlet-name>
     <url-pattern>/VaataRiigiAdminYksuseLiike</url-pattern>
   </servlet-mapping>
-     <servlet>
+  <servlet>
     <description></description>
     <display-name>VaataRiigiAdminYksuseLiike</display-name>
     <servlet-name>VaataRiigiAdminYksuseLiike</servlet-name>
@@ -58,10 +58,20 @@
     <servlet-name>VaataVoimalikeAlluvusi</servlet-name>
     <url-pattern>/VaataVoimalikeAlluvusi</url-pattern>
   </servlet-mapping>
-     <servlet>
+  <servlet>
     <description></description>
     <display-name>VaataVoimalikeAlluvusi</display-name>
     <servlet-name>VaataVoimalikeAlluvusi</servlet-name>
     <servlet-class>model.VaataVoimalikeAlluvusi</servlet-class>
   </servlet>
+  <servlet>
+    <description></description>
+    <display-name>V1</display-name>
+    <servlet-name>V1</servlet-name>
+    <servlet-class>model.V1</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>V1</servlet-name>
+    <url-pattern>/V1</url-pattern>
+  </servlet-mapping>
 </web-app>
