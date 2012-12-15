@@ -44,8 +44,7 @@
 					Kommentaar
 				</td>
 				<td>
-					<textarea rows="4" cols="50" name="kommentaar"><c:out value="${yksus.kommentaar}" />
-					</textarea>
+					<textarea rows="4" cols="30" name="kommentaar"><c:out value="${yksus.kommentaar}" /></textarea>
 				</td>
 			</tr>
 			<tr>
@@ -65,7 +64,7 @@
 					Allub
 				</td>
 				<td>
-					<select name='allub'>
+					<select name='allub' title='Näitab ainult admin üksusi millele on võimalik alluda'>
 					 	<option value="<c:out value='${yksus.riigi_admin_yksuse_liik_id}' />">
 					  		<c:out value="${yksus.riigi_admin_yksuse_liik_nimetus}" />
 					  	</option>
@@ -79,7 +78,7 @@
 	</div>
 	</c:forEach>
 	</form>
-	<p>&nbsp;<p>&#187; PS! <a href='VaataRiigiAdminYksusi'>Vaata kõiki riigi admin üksusi</a>!
+	<p>&nbsp;<br>&#187; PS! <a href='VaataRiigiAdminYksusi'>Vaata kõiki riigi admin üksusi</a>!
 	</div>
 	</div>
 	</body>

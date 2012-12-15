@@ -1,13 +1,17 @@
 @CHARSET "UTF-8";
-body, tr, td, select, option {
+body {background-color: #EEE8E8}
+body, tr, td, select, option, textarea {
 	color: #5E5E5E;
 	font-family: Calibri, Arial, Helvetica, sans-serif;
 	font-size: 13px;
 }
+table { border-color: white; font-size:12px; vertical-align:middle; border-spacing:5px;
+color: #5E5E5E; font-family: Calibri, Arial, Helvetica, sans-serif; font-size: 13px;}
 tr.rida {border: none}
 tr.rida1 {background-color: #eeeee0; }
+td {vertical-align: top; cellspacing: 5px}
 #sisu {
-    border: double 4px #5E5E5E;
+    border: double 4px #5C3317;
     position: absolute;
     left: 50%;
     top: 50%;
@@ -17,6 +21,7 @@ tr.rida1 {background-color: #eeeee0; }
     margin-top: -205px;
     width: 900px;
     margin-left: -450px;
+    background-color: white;
 }
 
 #logo {
@@ -37,9 +42,7 @@ tr.pealkiri {background-color: lightgray; color: white; font-weight: bold}
 img {border: 0px; padding: 10px;}
 table#data td { vertical-align: top; text-align: center;  font-family: Calibri, Arial, Helvetica, sans-serif;} 
 
-TABLE { border-color: white; font-size:12px; vertical-align:middle; color: #5E5E5E; font-family: Calibri, Arial, Helvetica, sans-serif; font-size: 13px;}
-textarea { font-size:11px; color: #5E5E5E; font-family: Arial;}
-input { font-size:13px; color: #5E5E5E; font-family: Arial; border: double; border-color: #E0E0E0; border-width: 1px; width: 300px; cursor: pointer}
+input { font-size:13px; color: #5E5E5E; font-family: Arial; border: double; border-color: #E0E0E0; border-width: 1px; cursor: pointer}
 .button {
     border: 1px solid #006;
     background: #9cf;
