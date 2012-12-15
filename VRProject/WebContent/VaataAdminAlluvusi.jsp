@@ -34,7 +34,7 @@
 				<td>komm</td>
 			</tr>
 			<c:forEach var="alluvus" items="${alluvused}">
-			<tr>
+			<tr class="rida" onmouseover="this.className='rida1'" onmouseout="this.className='rida'">
 				<td><c:out value="${alluvus.avaja}" /></td>
 				<td><c:out value="${alluvus.avatud}" /></td>
 				<td><c:out value="${alluvus.muutja}" /></td>

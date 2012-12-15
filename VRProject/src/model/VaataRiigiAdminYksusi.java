@@ -29,7 +29,8 @@ public class VaataRiigiAdminYksusi extends HttpServlet {
 		
 		List<RiigiAdminYksus> yksused = null;
 		try {
-			 yksused = vaataYksuseid();
+			 
+			yksused = vaataYksuseid();
 		} catch (SQLException e) {
 			throw new RuntimeException(e);
 		}

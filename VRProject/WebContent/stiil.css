@@ -1,9 +1,11 @@
 @CHARSET "UTF-8";
-body, tr, td {
+body, tr, td, select, option {
 	color: #5E5E5E;
 	font-family: Calibri, Arial, Helvetica, sans-serif;
 	font-size: 13px;
 }
+tr.rida {border: none}
+tr.rida1 {background-color: #eeeee0; }
 #sisu {
     border: double 4px #5E5E5E;
     position: absolute;

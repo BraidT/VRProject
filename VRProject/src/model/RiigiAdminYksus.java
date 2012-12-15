@@ -15,7 +15,9 @@ public class RiigiAdminYksus {
 	private String kommentaar;
 	private Date alates;
 	private Date kuni;
+	private String riigi_admin_yksuse_liik;
 	private int riigi_admin_yksuse_liik_id;
+	private String riigi_admin_yksuse_liik_nimetus;
 	
 	public int getId() {
 		return id;
@@ -92,8 +94,22 @@ public class RiigiAdminYksus {
 	public Integer getRiigi_admin_yksuse_liik_id() {
 		return riigi_admin_yksuse_liik_id;
 	}
+	public String getRiigi_admin_yksuse_liik() {
+		return riigi_admin_yksuse_liik;
+	}
+	public void setRiigi_admin_yksuse_liik(String riigi_admin_yksuse_liik) {
+		this.riigi_admin_yksuse_liik = riigi_admin_yksuse_liik;
+	}
 	public void setRiigi_admin_yksuse_liik_id(int riigi_admin_yksuse_liik_id) {
 		
 		this.riigi_admin_yksuse_liik_id = riigi_admin_yksuse_liik_id;
+	}
+	
+	public String getRiigi_admin_yksuse_liik_nimetus() {
+		return riigi_admin_yksuse_liik_nimetus;
+	}
+	public void setRiigi_admin_yksuse_liik_nimetus(String riigi_admin_yksuse_liik_nimetus) {
+		
+		this.riigi_admin_yksuse_liik_nimetus = riigi_admin_yksuse_liik_nimetus;
 	}
 }

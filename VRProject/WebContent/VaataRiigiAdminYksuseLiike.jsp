@@ -6,19 +6,19 @@
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 		<link rel="stylesheet" type="text/css" href="stiil.css">
-		<title>Vaata admin üksus!</title>
+		<title>Admin üksus!</title>
 	</head>
 	<body>	
  <div id="sisu">
    <a href='./'><img src='pildid/ITK.png' align='right'></a>
    <div id="vorm">
-	      <ul>
-			<li><a href='VaataAdminAlluvusi'>VaataAdminAlluvusi</a> uus!</li>
+      <ul>
+      		<li><a href='VaataAdminAlluvusi'>VaataAdminAlluvusi</a> uus!</li>
 			<li><a href='VaataRiigiAdminYksusi'>VaataRiigiAdminYksusi</a> uus!</li>
 			<li><a href='VaataRiigiAdminYksuseLiike'>VaataRiigiAdminYksuseLiike</a> uus!</li>
 			<li><a href='VaataVoimalikeAlluvusi'>VaataVoimalikeAlluvusi</a> uus!</li>
 		</ul>
-    Vaata riigi admin üksusi:<p>
+		 Vaata admin üksuse liike:<p>
 		<table width='880px'>
 			<tr class="pealkiri">
 				<td>id</td>
@@ -33,23 +33,21 @@
 				<td>kommentaar</td>
 				<td>alates</td>
 				<td>kuni</td>
-				<td>ID1</td>
 			</tr>
-			<c:forEach var="yksus" items="${yksused}">
+			<c:forEach var="liik" items="${liigid}">
 			<tr class="rida" onmouseover="this.className='rida1'" onmouseout="this.className='rida'">
-				<td><a href="V2?ID=<c:out value='${yksus.id}' />"><c:out value='${yksus.id}' /></a></td>
-				<td><c:out value="${yksus.avaja}" /></td>
-				<td><c:out value="${yksus.avatud}" /></td>
-				<td><c:out value="${yksus.muutja}" /></td>
-				<td><c:out value="${yksus.muudetud}" /></td>
-				<td><c:out value="${yksus.sulgeja}" /></td>
-				<td><c:out value="${yksus.suletud}" /></td>
-				<td><a href="V2?ID=<c:out value='${yksus.id}' />"><c:out value="${yksus.kood}" /></a></td>
-				<td><a href="V2?ID=<c:out value='${yksus.id}' />"><c:out value="${yksus.nimetus}" /></a></td>
-				<td><c:out value="${yksus.kommentaar}" /></td>
-				<td><c:out value="${yksus.alates}" /></td>
-				<td><c:out value="${yksus.kuni}" /></td>
-				<td><c:out value="${yksus.riigi_admin_yksuse_liik_id}" /></td>				
+				<td><c:out value="${liik.id}" /></td>
+				<td><c:out value="${liik.avaja}" /></td>
+				<td><c:out value="${liik.avatud}" /></td>
+				<td><c:out value="${liik.muutja}" /></td>
+				<td><c:out value="${liik.muudetud}" /></td>
+				<td><c:out value="${liik.sulgeja}" /></td>
+				<td><c:out value="${liik.suletud}" /></td>
+				<td><c:out value="${liik.kood}" /></td>
+				<td><c:out value="${liik.nimetus}" /></td>
+				<td><c:out value="${liik.kommentaar}" /></td>
+				<td><c:out value="${liik.alates}" /></td>
+				<td><c:out value="${liik.kuni}" /></td>
 			</tr>
 			</c:forEach>
 		</table>

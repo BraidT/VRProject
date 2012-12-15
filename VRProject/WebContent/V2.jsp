@@ -19,6 +19,8 @@
 			<li><a href='VaataVoimalikeAlluvusi'>VaataVoimalikeAlluvusi</a> uus!</li>
 		</ul>
     Vaata riigi admin üksusi:<p>
+   
+    <form method='POST' action='' accept-charset="UTF-8">
     <c:forEach var="yksus" items="${yksused}">
 		<table width='400px'>
 			<tr>
@@ -26,7 +28,7 @@
 					Kood
 				</td>
 				<td>
-					<input type="text" value="<c:out value='${yksus.kood}' />" id="kood">
+					<input type="text" value="<c:out value='${yksus.kood}' />" name="kood">
 				</td>
 			</tr>
 			<tr>
@@ -34,7 +36,7 @@
 					Nimetus
 				</td>
 				<td>
-					<input type="text" value="<c:out value='${yksus.nimetus}' />" id="nimetus">
+					<input name="nimetus" type="text" value="<c:out value='${yksus.nimetus}' />">
 				</td>
 			</tr>	
 			<tr>
@@ -42,9 +44,20 @@
 					Kommentaar
 				</td>
 				<td>
-					<textarea rows="4" cols="50" name="kommentaar">
-						<c:out value="${yksus.kommentaar}" />
+					<textarea rows="4" cols="50" name="kommentaar"><c:out value="${yksus.kommentaar}" />
 					</textarea>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					Liik
+				</td>
+				<td>
+					<select name='liik'>
+					 	<option value="<c:out value='${yksus.riigi_admin_yksuse_liik}' />">
+					  		<c:out value="${yksus.riigi_admin_yksuse_liik}" />
+					  	</option>
+					</select>
 				</td>
 			</tr>
 			<tr>
@@ -52,15 +65,21 @@
 					Allub
 				</td>
 				<td>
-					<select>
+					<select name='allub'>
 					 	<option value="<c:out value='${yksus.riigi_admin_yksuse_liik_id}' />">
-					  		<c:out value="${yksus.riigi_admin_yksuse_liik_id}" />
+					  		<c:out value="${yksus.riigi_admin_yksuse_liik_nimetus}" />
 					  	</option>
 					</select>
 				</td>
 			</tr>
 		</table>
+	<input type="hidden" name="id" value="<c:out value='${yksus.id}' />">
+	<div align="center">
+		<input type='submit' value='salvesa vorm' />
+	</div>
 	</c:forEach>
+	</form>
+	<p>&nbsp;<p>&#187; PS! <a href='VaataRiigiAdminYksusi'>Vaata kõiki riigi admin üksusi</a>!
 	</div>
 	</div>
 	</body>
