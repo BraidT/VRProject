@@ -88,10 +88,10 @@ public class DatabaseDAO extends Servlet {
 				+ "'Mart Potter', TODAY, 'Mart Potter', TODAY, NULL, NULL, 'M', 'Maakond', 'Suurim haldusüksus riigis', TODAY, NULL);");
 		statement.executeUpdate("INSERT INTO RIIGI_ADMIN_YKSUSE_LIIK("
 				+ "avaja, avatud, muutja, muudetud, sulgeja, suletud, kood, nimetus, kommentaar, alates, kuni) VALUES("
-				+ "'Mart Potter', TODAY, 'Mart Potter', TODAY, NULL, NULL, 'V', 'Vald', NULL, TODAY, NULL);");
+				+ "'Mart Potter', TODAY, 'Mart Potter', TODAY, NULL, NULL, 'L', 'Linn', NULL, TODAY, NULL);");
 		statement.executeUpdate("INSERT INTO RIIGI_ADMIN_YKSUSE_LIIK("
 				+ "avaja, avatud, muutja, muudetud, sulgeja, suletud, kood, nimetus, kommentaar, alates, kuni) VALUES("
-				+ "'Mart Potter', TODAY, 'Mart Potter', TODAY, NULL, NULL, 'L', 'Linn', NULL, TODAY, NULL);");
+				+ "'Mart Potter', TODAY, 'Mart Potter', TODAY, NULL, NULL, 'V', 'Vald', NULL, TODAY, NULL);");
 		statement.executeUpdate("INSERT INTO RIIGI_ADMIN_YKSUSE_LIIK("
 				+ "avaja, avatud, muutja, muudetud, sulgeja, suletud, kood, nimetus, kommentaar, alates, kuni) VALUES("
 				+ "'Mart Potter', TODAY, 'Mart Potter', TODAY, NULL, NULL, 'K', 'Küla', NULL, TODAY, NULL);");
@@ -122,13 +122,13 @@ public class DatabaseDAO extends Servlet {
 	private void insertTestDataVoimalikAlluvus() throws SQLException {
 		statement.executeUpdate("INSERT INTO VOIMALIK_ALLUVUS("
 				+ "avaja, avatud, muutja, muudetud, sulgeja, suletud, riigi_admin_yksuse_liik_id, riigi_admin_yksuse_alluva_liik_id, kommentaar, alates, kuni) VALUES("
-				+ "'Mart Potter', TODAY, 'Mart Potter', TODAY, NULL, NULL, 1, 2, 'Vald allub maakonnale', TODAY, NULL);");
+				+ "'Mart Potter', TODAY, 'Mart Potter', TODAY, NULL, NULL, 1, 2, 'Linn allub maakonnale', TODAY, NULL);");
 		statement.executeUpdate("INSERT INTO VOIMALIK_ALLUVUS("
 				+ "avaja, avatud, muutja, muudetud, sulgeja, suletud, riigi_admin_yksuse_liik_id, riigi_admin_yksuse_alluva_liik_id, kommentaar, alates, kuni) VALUES("
-				+ "'Mart Potter', TODAY, 'Mart Potter', TODAY, NULL, NULL, 1, 3, 'Linn allub maakonnale', TODAY, NULL);");
+				+ "'Mart Potter', TODAY, 'Mart Potter', TODAY, NULL, NULL, 1, 3, 'Vald allub maakonnale', TODAY, NULL);");
 		statement.executeUpdate("INSERT INTO VOIMALIK_ALLUVUS("
 				+ "avaja, avatud, muutja, muudetud, sulgeja, suletud, riigi_admin_yksuse_liik_id, riigi_admin_yksuse_alluva_liik_id, kommentaar, alates, kuni) VALUES("
-				+ "'Mart Potter', TODAY, 'Mart Potter', TODAY, NULL, NULL, 2, 4, 'Küla allub vallale', TODAY, NULL);");
+				+ "'Mart Potter', TODAY, 'Mart Potter', TODAY, NULL, NULL, 3, 4, 'Küla allub vallale', TODAY, NULL);");
 		statement.executeUpdate("INSERT INTO VOIMALIK_ALLUVUS("
 				+ "avaja, avatud, muutja, muudetud, sulgeja, suletud, riigi_admin_yksuse_liik_id, riigi_admin_yksuse_alluva_liik_id, kommentaar, alates, kuni) VALUES("
 				+ "'Mart Potter', TODAY, 'Mart Potter', TODAY, NULL, NULL, 4, 5, 'Talu allub külale', TODAY, NULL);");
@@ -156,19 +156,25 @@ public class DatabaseDAO extends Servlet {
 	private void insertTestDataRiigiAdminYksus() throws SQLException {
 		statement.executeUpdate("INSERT INTO RIIGI_ADMIN_YKSUS("
 				+ "avaja, avatud, muutja, muudetud, sulgeja, suletud, kood, nimetus, kommentaar, alates, kuni, riigi_admin_yksuse_liik_id) VALUES("
-				+ "'Mart Potter', TODAY, 'Mart Potter', TODAY, NULL, NULL, 'M1', 'Viljandi', 'Viljandi maakond', TODAY, NULL, 1); ");
+				+ "'Mart Potter', TODAY, 'Mart Potter', TODAY, NULL, NULL, 'M1', 'Viljandi maakond', '"
+				+ "Viljandimaa piirneb läänes Pärnu, põhjas Järva, kirdes Jõgevamaaga, idas Tartu ja kagus Valga maakonnaga ning lõunas Lätiga.', TODAY, NULL, 1); ");
 		
 		statement.executeUpdate("INSERT INTO RIIGI_ADMIN_YKSUS("
 				+ "avaja, avatud, muutja, muudetud, sulgeja, suletud, kood, nimetus, kommentaar, alates, kuni, riigi_admin_yksuse_liik_id) VALUES("
-				+ "'Mart Potter', TODAY, 'Mart Potter', TODAY, NULL, NULL, 'V1', 'Viiratsi', 'Viiratsi vald', TODAY, NULL, 2); ");
+				+ "'Mart Potter', TODAY, 'Mart Potter', TODAY, NULL, NULL, 'L1', 'Viljandi linn', "
+				+ "'Linn Lõuna-Eestis. Viljandi on Viljandi maakonna halduskeskus. Linn asub Sakala kõrgustikul, Viljandi järve kaldal. Viljandist on Tallinnasse 164 km, Tartusse 81 km ja Pärnusse 97 km.', TODAY, NULL, 2); ");
 		
 		statement.executeUpdate("INSERT INTO RIIGI_ADMIN_YKSUS("
 				+ "avaja, avatud, muutja, muudetud, sulgeja, suletud, kood, nimetus, kommentaar, alates, kuni, riigi_admin_yksuse_liik_id) VALUES("
-				+ "'Mart Potter', TODAY, 'Mart Potter', TODAY, NULL, NULL, 'K1', 'Verilaske', 'Verilaske küla', TODAY, NULL, 4); ");
+				+ "'Mart Potter', TODAY, 'Mart Potter', TODAY, NULL, NULL, 'V1', 'Viiratsi vald', 'Asub Viljandi linnast idas ja ulatub Viljandist Võrtsjärveni.', TODAY, NULL, 3); ");
 		
 		statement.executeUpdate("INSERT INTO RIIGI_ADMIN_YKSUS("
 				+ "avaja, avatud, muutja, muudetud, sulgeja, suletud, kood, nimetus, kommentaar, alates, kuni, riigi_admin_yksuse_liik_id) VALUES("
-				+ "'Mart Potter', TODAY, 'Mart Potter', TODAY, NULL, NULL, 'T1', 'Ärma', 'Ärma talu', TODAY, NULL, 5); ");
+				+ "'Mart Potter', TODAY, 'Mart Potter', TODAY, NULL, NULL, 'K1', 'Verilaske küla', 'Asub ca 1 km kaugusel Viiratsi alevikust, Väluste teeääres.', TODAY, NULL, 4); ");
+		
+		statement.executeUpdate("INSERT INTO RIIGI_ADMIN_YKSUS("
+				+ "avaja, avatud, muutja, muudetud, sulgeja, suletud, kood, nimetus, kommentaar, alates, kuni, riigi_admin_yksuse_liik_id) VALUES("
+				+ "'Mart Potter', TODAY, 'Mart Potter', TODAY, NULL, NULL, 'T1', 'Ärma talu', 'Asub Abja-Paluojast mõne kilomeetri kaugusel ja kuulub Ilveste suguvõsale juba 1763. aastast alates. Selle pindala on 82 hektarit.', TODAY, NULL, 5); ");
 	}
 	
 	private void createTableAdminAlluvus() throws SQLException {
@@ -193,12 +199,15 @@ public class DatabaseDAO extends Servlet {
 	private void insertTestDataAdminAlluvus() throws SQLException {
 		statement.executeUpdate("INSERT INTO ADMIN_ALLUVUS("
 				+ "avaja, avatud, muutja, muudetud, sulgeja, suletud, alates, kuni, kommentaar, riigi_admin_yksuse_id, riigi_admin_yksuse_alluva_id) VALUES("
-				+ "'Mart Potter', TODAY, 'Mart Potter', TODAY, NULL, NULL, TODAY, NULL, 'Viiratsi vald allub Viljandi maakonnale', 1, 2);");
+				+ "'Mart Potter', TODAY, 'Mart Potter', TODAY, NULL, NULL, TODAY, NULL, 'Viljandi linn allub Viljandi maakonnale', 1, 2);");
 		statement.executeUpdate("INSERT INTO ADMIN_ALLUVUS("
 				+ "avaja, avatud, muutja, muudetud, sulgeja, suletud, alates, kuni, kommentaar, riigi_admin_yksuse_id, riigi_admin_yksuse_alluva_id) VALUES("
-				+ "'Mart Potter', TODAY, 'Mart Potter', TODAY, NULL, NULL, TODAY, NULL, 'Verilaske küla allub Viiratsi vallale', 2, 3);");
+				+ "'Mart Potter', TODAY, 'Mart Potter', TODAY, NULL, NULL, TODAY, NULL, 'Viiratsi vald allub Viljandi maakonnale', 1, 3);");
 		statement.executeUpdate("INSERT INTO ADMIN_ALLUVUS("
 				+ "avaja, avatud, muutja, muudetud, sulgeja, suletud, alates, kuni, kommentaar, riigi_admin_yksuse_id, riigi_admin_yksuse_alluva_id) VALUES("
-				+ "'Mart Potter', TODAY, 'Mart Potter', TODAY, NULL, NULL, TODAY, NULL, 'Ärma talu allub Verilaske külale', 3, 4);");	
+				+ "'Mart Potter', TODAY, 'Mart Potter', TODAY, NULL, NULL, TODAY, NULL, 'Verilaske küla allub Viiratsi vallale', 3, 4);");
+		statement.executeUpdate("INSERT INTO ADMIN_ALLUVUS("
+				+ "avaja, avatud, muutja, muudetud, sulgeja, suletud, alates, kuni, kommentaar, riigi_admin_yksuse_id, riigi_admin_yksuse_alluva_id) VALUES("
+				+ "'Mart Potter', TODAY, 'Mart Potter', TODAY, NULL, NULL, TODAY, NULL, 'Ärma talu allub Verilaske külale', 4, 5);");	
 	}
 }

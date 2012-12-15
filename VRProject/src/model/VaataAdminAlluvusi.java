@@ -58,8 +58,7 @@ public class VaataAdminAlluvusi extends HttpServlet {
 		ResultSet rset = null;
 		try {
 			stmt = conn.createStatement();
-			rset = stmt.executeQuery("select * from ADMIN_ALLUVUS "
-					+ "where suletud is null");
+			rset = stmt.executeQuery("select * from ADMIN_ALLUVUS");
 
 			while (rset.next()) {
 				AdminAlluvus alluvus = new AdminAlluvus();

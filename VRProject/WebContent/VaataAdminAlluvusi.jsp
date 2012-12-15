@@ -18,8 +18,9 @@
 			<li><a href='VaataRiigiAdminYksuseLiike'>VaataRiigiAdminYksuseLiike</a> uus!</li>
 			<li><a href='VaataVoimalikeAlluvusi'>VaataVoimalikeAlluvusi</a> uus!</li>
 		</ul>
+		<div id='andmed'>
    Vaata admin alluvusi:<p>
-		<table width='880px'>
+		<table width='850px'>
 			<tr class="pealkiri">
 				<td>avaja</td>
 				<td>avatud</td>
@@ -29,8 +30,8 @@
 				<td>suletud</td>
 				<td>alates</td>
 				<td>kuni</td>
-				<td>ID1</td>
-				<td>ID2</td>
+				<td title="riigi_admin_yksuse_id">ID1</td>
+				<td title="riigi_admin_yksuse_alluva_id">ID2</td>
 				<td>komm</td>
 			</tr>
 			<c:forEach var="alluvus" items="${alluvused}">
@@ -49,6 +50,7 @@
 			</tr>
 			</c:forEach>
 		</table>
+	</div>
 	</div>
 	</div>
 	</body>

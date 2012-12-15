@@ -174,7 +174,8 @@ private List<AdminAlluvus> vaataAlluvusi(int ID) throws SQLException {
 						.getConnection("jdbc:hsqldb:file:x://ITK//Java//Veebirakendused//DB//Projekt;shutdown=true");
 									
 			  ps = conn.prepareStatement("update ADMIN_ALLUVUS "
-					 + "set suletud = TODAY "
+					 + "set suletud = TODAY, "
+					 + "sulgeja = 'admin' "
 					 + "where riigi_admin_yksuse_id = ? "
 					 + "AND riigi_admin_yksuse_alluva_id = ?");
 			 ps.setInt(1, ylev);

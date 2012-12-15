@@ -58,7 +58,7 @@ public class VaataVoimalikeAlluvusi extends HttpServlet {
 		ResultSet rset = null;
 		try {
 			stmt = conn.createStatement();
-			rset = stmt.executeQuery("select * from ADMIN_ALLUVUS where "
+			rset = stmt.executeQuery("select * from VOIMALIK_ALLUVUS where "
 					+ "suletud is null");
 
 			while (rset.next()) {
@@ -70,11 +70,11 @@ public class VaataVoimalikeAlluvusi extends HttpServlet {
 				alluvus.setMuudetud(rset.getDate(5));
 				alluvus.setSulgeja(rset.getString(6));
 				alluvus.setSuletud(rset.getDate(7));
-				alluvus.setAlates(rset.getDate(8));
-				alluvus.setKuni(rset.getDate(9));
+				alluvus.setRiigi_admin_yksuse_id(rset.getInt(8));
+				alluvus.setRiigi_admin_yksuse_alluva_id(rset.getInt(9));
 				alluvus.setKommentaar(rset.getString(10));
-				alluvus.setRiigi_admin_yksuse_id(rset.getInt(11));
-				alluvus.setRiigi_admin_yksuse_alluva_id(rset.getInt(12));
+				alluvus.setAlates(rset.getDate(11));
+				alluvus.setKuni(rset.getDate(12));
 				
 				alluvused.add(alluvus);
 			}

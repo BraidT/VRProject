@@ -18,8 +18,9 @@
 			<li><a href='VaataRiigiAdminYksuseLiike'>VaataRiigiAdminYksuseLiike</a> uus!</li>
 			<li><a href='VaataVoimalikeAlluvusi'>VaataVoimalikeAlluvusi</a> uus!</li>
 		</ul>
+		<div id='andmed'>
     Vaata riigi admin üksusi:<p>
-		<table width='880px'>
+		<table width='850px'>
 			<tr class="pealkiri">
 				<td>id</td>
 				<td>avaja</td>
@@ -53,6 +54,7 @@
 			</tr>
 			</c:forEach>
 		</table>
+		</div>
 	</div>
 	</div>
 	</body>

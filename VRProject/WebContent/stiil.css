@@ -37,6 +37,12 @@ td {vertical-align: top; cellspacing: 5px}
 	position: absolute;
 	margin: auto;
 }
+#andmed {
+	height: 300px;
+	width: 880px;
+	overflow-y: scroll;
+	overflow-x: hidden;
+}
 #v1, #v2, #v3, #v4, #v5 {position: absolute; display:none}
 tr.pealkiri {background-color: lightgray; color: white; font-weight: bold}
 img {border: 0px; padding: 10px;}

@@ -74,7 +74,7 @@
     <servlet-name>V1</servlet-name>
     <url-pattern>/V1</url-pattern>
   </servlet-mapping>
-   <servlet>
+  <servlet>
     <description></description>
     <display-name>V2</display-name>
     <servlet-name>V2</servlet-name>
@@ -83,5 +83,15 @@
   <servlet-mapping>
     <servlet-name>V2</servlet-name>
     <url-pattern>/V2</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>LisaAdminAlluv</display-name>
+    <servlet-name>LisaAdminAlluv</servlet-name>
+    <servlet-class>model.LisaAdminAlluv</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>LisaAdminAlluv</servlet-name>
+    <url-pattern>/LisaAdminAlluv</url-pattern>
   </servlet-mapping>
 </web-app>
