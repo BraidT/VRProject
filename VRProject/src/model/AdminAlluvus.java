@@ -14,6 +14,7 @@ public class AdminAlluvus {
 	private Date kuni;
 	private Integer riigi_admin_yksuse_id;
 	private Integer riigi_admin_yksuse_alluva_id;
+	private String riigi_admin_yksuse_alluva_nimetus;
 	private String kommentaar;
 	
 	public int getId() {
@@ -87,5 +88,12 @@ public class AdminAlluvus {
 	}
 	public void setRiigi_admin_yksuse_alluva_id(int riigi_admin_yksuse_alluva_id) {
 		this.riigi_admin_yksuse_alluva_id = riigi_admin_yksuse_alluva_id;
+	}
+
+	public String getRiigi_admin_yksuse_alluva_nimetus() {
+		return riigi_admin_yksuse_alluva_nimetus;
+	}
+	public void setRiigi_admin_yksuse_alluva_nimetus(String riigi_admin_yksuse_alluva_nimetus) {
+		this.riigi_admin_yksuse_alluva_nimetus = riigi_admin_yksuse_alluva_nimetus;
 	}
 }

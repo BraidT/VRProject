@@ -19,10 +19,13 @@
 			<li><a href='VaataVoimalikeAlluvusi'>VaataVoimalikeAlluvusi</a> uus!</li>
 		</ul>
     Vaata riigi admin üksusi:<p>
-   
+   <c:forEach var="yksus" items="${yksused}">
+	
+   <table width="880px">
+   <tr>
+   <td width="50%">
     <form method='POST' action='' accept-charset="UTF-8">
-    <c:forEach var="yksus" items="${yksused}">
-		<table width='400px'>
+    	<table width='400px'>
 			<tr>
 				<td>
 					Kood
@@ -76,8 +79,30 @@
 	<div align="center">
 		<input type='submit' value='salvesa vorm' />
 	</div>
-	</c:forEach>
 	</form>
+	
+	</td><td width="50%">
+	<form method='POST' action='' accept-charset="UTF-8">
+	
+	<table width="300px">
+	<tr class="pealkiri">
+		<td colspan="2">
+			Alluvad
+		</td>
+	</tr>
+	<c:forEach var="alluvus" items="${alluvused}">
+	<tr>
+		<td><c:out value='${alluvus.riigi_admin_yksuse_alluva_nimetus}' /></td>
+		<td>
+		<input type="hidden" name="alluv" value="<c:out value='${alluvus.id}' />">
+		<input type="hidden" name="ylev" value="<c:out value='${yksus.id}' />">
+		<input type='submit' value='eemalda'></td>
+	</tr>
+	</c:forEach>
+	</table>
+</form>
+	</td></tr></table></c:forEach>
+	
 	<p>&nbsp;<br>&#187; PS! <a href='VaataRiigiAdminYksusi'>Vaata kõiki riigi admin üksusi</a>!
 	</div>
 	</div>

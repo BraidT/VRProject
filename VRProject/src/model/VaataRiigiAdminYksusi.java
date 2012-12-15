@@ -59,7 +59,8 @@ public class VaataRiigiAdminYksusi extends HttpServlet {
 		ResultSet rset = null;
 		try {
 			stmt = conn.createStatement();
-			rset = stmt.executeQuery("select * from RIIGI_ADMIN_YKSUS");
+			rset = stmt.executeQuery("select * from RIIGI_ADMIN_YKSUS "
+					+ "where suletud is null");
 
 			while (rset.next()) {
 				RiigiAdminYksus yksus = new RiigiAdminYksus();
