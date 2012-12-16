@@ -11,7 +11,7 @@
 	<body>	
  <div id="sisu">
    <div id="vorm">
-      <%-- <jsp:include page="pealdis.jsp"/> --%>
+      <jsp:include page="pealdis.jsp"/>
    Vaata admin alluvusi:<p>
 		<table width='880px'>
 			<tr class="pealkiri">

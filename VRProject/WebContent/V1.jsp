@@ -34,9 +34,7 @@
 										</tr>
 										<tr>
 											<td>Kommentaar</td>
-											<td><textarea rows="4" cols="30" name="kommentaar">
-													<c:out value="${yksuseLiik.kommentaar}" />
-												</textarea></td>
+											<td><textarea rows="4" cols="30" name="kommentaar"><c:out value="${yksuseLiik.kommentaar}" /></textarea></td>
 										</tr>
 										<tr>
 											<td>Allub</td>
@@ -92,6 +90,8 @@
 				<input type='submit' value='salvesta' /> <input type="button"
 					value="loobu" onclick='window.location = "index.jsp"'>
 			</div>
+			<p>&#187; PS! <a href='VaataRiigiAdminYksuseLiike'>Vaata kõiki riigi admin üksuse liike</a>!
+	
 		</div>
 	</div>
 

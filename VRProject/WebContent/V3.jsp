@@ -12,7 +12,7 @@
  <div id="sisu">
    <div id="vorm">
    	<jsp:include page="pealdis.jsp"/>
-		 Vaata admin üksuste alluvusraport<p>
+		 <p><u>&#187; V3 - Admin üksuste alluvusraport</u>
 		 <form method='POST' action='' accept-charset="UTF-8">
 		 <table width="300px">
 		 	<tr>
@@ -27,7 +27,7 @@
 		 		</td>
 		 	</tr>
 		 	<tr>
-		 		<td><input type="text" value=""></td>
+		 		<td><input type="text" value="kuupäev veel ei tööta" disabled></td>
 		 		<td>
 					<select name='liik'>
 						<c:forEach var="liik" items="${liigid}">
@@ -44,14 +44,14 @@
 		</table>
 		</form>
 		<p>
-		<table border="1" width="300px">
+		<table border="0" width="300px">
 			<c:forEach var="yksus" items="${yksused}">
 			<tr class="rida" onmouseover="this.className='rida1'" onmouseout="this.className='rida'">
 				<td>
 				<form method='POST' action='' accept-charset="UTF-8">
 					<a href="V2?ID=<c:out value='${yksus.id}' />"><c:out value="${yksus.nimetus}" /></a>
 				<input type="hidden" name="alluv" value="<c:out value='${yksus.id}' />">
-				<input type="submit" value="Vaata">
+				<%--<input type="submit" value="Vaata"> --%>
 				</form>
 				</td>				
 			</tr>

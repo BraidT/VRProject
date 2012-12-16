@@ -30,15 +30,15 @@
 			</tr>
 			<c:forEach var="liik" items="${liigid}">
 			<tr class="rida" onmouseover="this.className='rida1'" onmouseout="this.className='rida'">
-				<td><c:out value="${liik.id}" /></td>
+				<td><a href="V1?ID=<c:out value='${liik.id}' />"><c:out value='${liik.id}' /></a></td>
 				<td><c:out value="${liik.avaja}" /></td>
 				<td><c:out value="${liik.avatud}" /></td>
 				<td><c:out value="${liik.muutja}" /></td>
 				<td><c:out value="${liik.muudetud}" /></td>
 				<td><c:out value="${liik.sulgeja}" /></td>
 				<td><c:out value="${liik.suletud}" /></td>
-				<td><c:out value="${liik.kood}" /></td>
-				<td><c:out value="${liik.nimetus}" /></td>
+				<td><a href="V1?ID=<c:out value='${liik.id}' />"><c:out value="${liik.kood}" /></a></td>
+				<td><a href="V1?ID=<c:out value='${liik.id}' />"><c:out value="${liik.nimetus}" /></a></td>
 				<td><c:out value="${liik.kommentaar}" /></td>
 				<td><c:out value="${liik.alates}" /></td>
 				<td><c:out value="${liik.kuni}" /></td>

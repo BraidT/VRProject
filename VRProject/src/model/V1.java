@@ -185,8 +185,9 @@ public class V1 extends HttpServlet {
 
 			ps.setInt(1, ID);
 			rset = ps.executeQuery();
-			RiigiAdminYksuseLiik riigiAdminYksuseLiik = new RiigiAdminYksuseLiik();
+			
 			while (rset.next()) {
+				RiigiAdminYksuseLiik riigiAdminYksuseLiik = new RiigiAdminYksuseLiik();
 				psAlluvad = conn
 						.prepareStatement("select riigi_admin_yksuse_liik_id, nimetus from RIIGI_ADMIN_YKSUSE_LIIK where riigi_admin_yksuse_liik_id = ?");
 				psAlluvad.setInt(1, rset.getInt(1));

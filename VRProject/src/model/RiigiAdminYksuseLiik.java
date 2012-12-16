@@ -5,6 +5,7 @@ import java.util.List;
 
 public class RiigiAdminYksuseLiik {
 	private int id;
+	private int alluv_id;
 	private String avaja;
 	private Date avatud;
 	private String muutja;
@@ -24,6 +25,12 @@ public class RiigiAdminYksuseLiik {
 	}
 	public void setId(int id) {
 		this.id = id;
+	}
+	public int getAlluv_id() {
+		return alluv_id;
+	}
+	public void setAlluv_id(int alluv_id) {
+		this.alluv_id = alluv_id;
 	}
 	public String getAvaja() {
 		return avaja;
