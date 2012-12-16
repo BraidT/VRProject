@@ -72,13 +72,15 @@
 												</a></td>
 												<td align='right'><input type="hidden" name="alluv"
 													value="<c:out value='${alluvus.id}' />"> <input
+													type="hidden" name="ylemus"
+													value="<c:out value='${ylemus.id}' />"><input
 													type='submit' value='eemalda'></td>
 											</tr>
 										</c:forEach>
 										<tr>
 											<td colspan="2" align='right'><input type="button"
 												value="lisa"
-												onclick='window.location = "LisaAdminAlluv?id=<c:out value='${yksus.id}' />"'>
+												onclick='window.location = "LisaVoimalikAlluv?id=<c:out value='${yksuseLiik.id}' />"'>
 											</td>
 									</table>
 								</form>

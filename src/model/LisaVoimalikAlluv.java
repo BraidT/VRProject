@@ -30,7 +30,6 @@ public class LisaVoimalikAlluv extends HttpServlet {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-
 	public void init() throws ServletException {
 		try {
 			Class.forName("org.hsqldb.jdbcDriver");
@@ -38,7 +37,6 @@ public class LisaVoimalikAlluv extends HttpServlet {
 			throw new RuntimeException(e);
 		}
 	}
-
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
 	 *      response)
@@ -51,10 +49,17 @@ public class LisaVoimalikAlluv extends HttpServlet {
 		List<RiigiAdminYksuseLiik> yksuseLiigid = null;
 		try {
 			System.out.println("leian liigid");
-			yksuseLiigid = leiaYksuseLiigid(id);
+			yksuseLiigid = vaataYksuseLiike(id);
+			if(yksuseLiigid != null){
+				System.out.println("leitud vähemalt üks liik");
+			}
+			else{
+				System.out.println("liike pole");
+			}
 		} catch (SQLException e) {
 			throw new RuntimeException(e);
 		}
+
 		request.setAttribute("yksuseLiigid", yksuseLiigid);
 		request.getRequestDispatcher("LisaVoimalikAlluv.jsp").forward(request,
 				response);
@@ -66,46 +71,10 @@ public class LisaVoimalikAlluv extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request,
 			HttpServletResponse response) throws ServletException, IOException {
-		String alluv_id[] = request.getParameterValues("alluv_id");
-		String kommentaar[] = request.getParameterValues("kommentaar");
-		int id = Integer.parseInt(request.getParameter("id"));
-		if (alluv_id != null) {
-			System.out.println(request.getParameter("id") + " uued alluvad: ");
-			Connection conn = null;
-			PreparedStatement ps = null;
-			ResultSet rset = null;
-			System.out.println("Alluv id length = " + alluv_id.length);
-			for (int i = 0; i < alluv_id.length; i++) {
-				try {
-					conn = DriverManager.getConnection(connectionString);
-
-					ps = conn
-							.prepareStatement("INSERT INTO VOIMALIK_ALLUVUS("
-									+ " avaja, avatud, muutja, muudetud, sulgeja, suletud, riigi_admin_yksuse_liik_id, riigi_admin_yksuse_alluva_liik_id, kommentaar, alates, kuni) VALUES("
-									+ "'admin', TODAY, 'admin', TODAY, NULL, NULL, ?, ?, ?, TODAY, NULL);");
-					ps.setInt(1, id);
-					ps.setInt(2, Integer.parseInt(alluv_id[i]));
-					ps.setString(3, kommentaar[i]);
-					int rowCount = ps.executeUpdate();
-					System.out.println(rowCount + " rows updated!");
-				} catch (SQLException e) {
-					throw new RuntimeException(e);
-				} finally {
-					DbUtils.closeQuietly(conn);
-					DbUtils.closeQuietly(ps);
-					DbUtils.closeQuietly(rset);
-				}
-			}
-		} else {
-			System.out.println("<b>none<b>");
-		}
-		String redirectURL = "V1?ID=" + id;
-		response.sendRedirect(redirectURL);
-
+		// TODO Auto-generated method stub
 	}
 
-	private List<RiigiAdminYksuseLiik> leiaYksuseLiigid(int id)
-			throws SQLException {
+	private List<RiigiAdminYksuseLiik> vaataYksuseLiike(int id) throws SQLException {
 
 		List<RiigiAdminYksuseLiik> yksuseLiigid = new ArrayList<RiigiAdminYksuseLiik>();
 
@@ -128,6 +97,7 @@ public class LisaVoimalikAlluv extends HttpServlet {
 			RiigiAdminYksuseLiik yksuseLiik = new RiigiAdminYksuseLiik();
 
 			while (rset.next()) {
+				System.out.println("test");
 				yksuseLiik.setId(rset.getInt(1));
 				yksuseLiik.setAvaja(rset.getString(2));
 				yksuseLiik.setAvatud(rset.getDate(3));
@@ -140,7 +110,7 @@ public class LisaVoimalikAlluv extends HttpServlet {
 				yksuseLiik.setKommentaar(rset.getString(10));
 				yksuseLiik.setAlates(rset.getDate(11));
 				yksuseLiik.setKuni(rset.getDate(12));
-				System.out.println("ID = " + rset.getInt(1));
+				System.out.println("ID = "+rset.getInt(1));
 
 				yksuseLiigid.add(yksuseLiik);
 			}
