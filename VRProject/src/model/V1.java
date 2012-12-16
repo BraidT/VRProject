@@ -1,6 +1,7 @@
 package model;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -49,9 +50,9 @@ public class V1 extends HttpServlet {
 		List<RiigiAdminYksuseLiik> riigiAdminYksuseLiigid = null;
 		List<RiigiAdminYksuseLiik> alluvad = null;
 		List<RiigiAdminYksuseLiik> ylemused = null;
-		
+
 		int ID = 1;
-		if(request.getParameter("ID") !=null) {
+		if (request.getParameter("ID") != null) {
 			ID = Integer.parseInt(request.getParameter("ID"));
 		}
 		try {
@@ -60,18 +61,17 @@ public class V1 extends HttpServlet {
 			throw new RuntimeException(e);
 		}
 
-		request.setAttribute("yksusteLiigid",  riigiAdminYksuseLiigid);
-		
+		request.setAttribute("yksusteLiigid", riigiAdminYksuseLiigid);
+
 		try {
-			 alluvad = leiaAlluvad(ID);
+			alluvad = leiaAlluvad(ID);
 		} catch (SQLException e) {
 			throw new RuntimeException(e);
 		}
 
 		request.setAttribute("alluvad", alluvad);
-		
 		try {
-			 ylemused = leiaYlemused(ID);
+			ylemused = leiaYlemused(ID);
 		} catch (SQLException e) {
 			throw new RuntimeException(e);
 		}
@@ -85,7 +85,9 @@ public class V1 extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request,
 			HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
+		Connection conn = null;
+		PreparedStatement ps = null;
+		
 	}
 
 	private List<RiigiAdminYksuseLiik> leiaYksusteLiigid(int ID)
@@ -156,15 +158,16 @@ public class V1 extends HttpServlet {
 		}
 		return alluvad;
 	}
-	
+
 	private List<RiigiAdminYksuseLiik> leiaYlemused(int ID) throws SQLException {
 
-		List<RiigiAdminYksuseLiik> alluvad = new ArrayList<RiigiAdminYksuseLiik>();
+		List<RiigiAdminYksuseLiik> ylemused = new ArrayList<RiigiAdminYksuseLiik>();
 		Connection conn = DriverManager.getConnection(connectionString);
 
 		ResultSet rset = null;
 		PreparedStatement ps = null;
 		try {
+			System.out.println("Starting query");
 			ResultSet rsetAlluvad = null;
 			PreparedStatement psAlluvad = null;
 			ps = conn
@@ -174,14 +177,18 @@ public class V1 extends HttpServlet {
 			rset = ps.executeQuery();
 			RiigiAdminYksuseLiik riigiAdminYksuseLiik = new RiigiAdminYksuseLiik();
 			while (rset.next()) {
+				System.out.println("dsd");
 				psAlluvad = conn
 						.prepareStatement("select riigi_admin_yksuse_liik_id, nimetus from RIIGI_ADMIN_YKSUSE_LIIK where riigi_admin_yksuse_liik_id = ?");
 				psAlluvad.setInt(1, rset.getInt(1));
 				rsetAlluvad = psAlluvad.executeQuery();
 				while (rsetAlluvad.next()) {
+					System.out.println("mingid ylemused on");
 					riigiAdminYksuseLiik.setId(rsetAlluvad.getInt(1));
 					riigiAdminYksuseLiik.setNimetus(rsetAlluvad.getString(2));
-					alluvad.add(riigiAdminYksuseLiik);
+					System.out.println("riigiAdminYksuseLiik nimetus = "
+							+ riigiAdminYksuseLiik.getNimetus());
+					ylemused.add(riigiAdminYksuseLiik);
 				}
 			}
 		} catch (SQLException e) {
@@ -190,6 +197,6 @@ public class V1 extends HttpServlet {
 			DbUtils.closeQuietly(rset);
 			DbUtils.closeQuietly(conn);
 		}
-		return alluvad;
+		return ylemused;
 	}
 }

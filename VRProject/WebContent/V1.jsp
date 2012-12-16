@@ -13,65 +13,80 @@
 	<div id="sisu">
 		<div id="vorm">
 			<%-- <jsp:include page="pealdis.jsp"/> --%>
-			Vaata riigi admin üksuste liike:
 			<p>
-			<table width="880px">
 				<c:forEach var="yksuseLiik" items="${yksusteLiigid}">
-					<tr>
-						<td width="50%">
-							<form method='POST' action='' accept-charset="UTF-8">
-								<table width='400px'>
-									<tr>
-										<td>Kood</td>
-										<td><input type="text"
-											value="<c:out value='${yksuseLiik.kood}' />" name="kood"></td>
-									</tr>
-									<tr>
-										<td>Nimetus</td>
-										<td><input name="nimetus" type="text"
-											value="<c:out value='${yksuseLiik.nimetus}' />"></td>
-									</tr>
-									<tr>
-										<td>Kommentaar</td>
-										<td><textarea rows="4" cols="30" name="kommentaar">
-										<c:out value="${yksuseLiik.kommentaar}" />
-									</textarea></td>
-									</tr>
-									<tr>
-										<td>Allub</td>
-										<td><select name='allub'
-											title='Näitab ainult admin üksusi millele on võimalik alluda'>
-												<c:forEach var="allub" items="${ylemused}">
-													<option value="<c:out value='${ylemus.nimetus}' />">
-													</option>
-												</c:forEach>
-										</select></td>
-									</tr>
-								</table>
-								</
-								<div align="center">
-									<input type='submit' value='salvesta vorm' />
-								</div>
-							</form>
 
-						</td>
-						<td width="50%"></td>
-					</tr>
+					<table width="880px">
+						<tr>
+							<td width="50%">
+								<form method='POST' action='' accept-charset="UTF-8">
+									<table width='400px'>
+										<tr>
+											<td>Kood</td>
+											<td><input type="text"
+												value="<c:out value='${yksuseLiik.kood}' />" name="kood">
+											</td>
+										</tr>
+										<tr>
+											<td>Nimetus</td>
+											<td><input name="nimetus" type="text"
+												value="<c:out value='${yksuseLiik.nimetus}' />"></td>
+										</tr>
+										<tr>
+											<td>Kommentaar</td>
+											<td><textarea rows="4" cols="30" name="kommentaar">
+													<c:out value="${yksuseLiik.kommentaar}" />
+												</textarea></td>
+										</tr>
+										<tr>
+											<td>Allub</td>
+											<td><select name='ylemus'>
+													<c:forEach var="ylemused" items="${ylemused}">
+
+														<option value="<c:out value='${ylemused.id}' />">
+															<c:out value="${ylemused.nimetus}" />
+														</option>
+													</c:forEach>
+											</select></td>
+										</tr>
+									</table>
+									<input type="hidden" name="id"
+										value="<c:out value='${yksuseLiik.id}' />">
+									<div align="center">
+										<input type='submit' value='salvesta vorm' />
+									</div>
+								</form>
+
+							</td>
+							<td width="50%">
+								<form method='POST' action='' accept-charset="UTF-8">
+
+									<table width="300px">
+										<tr class="pealkiri">
+											<td colspan="2">Alluvad</td>
+										</tr>
+										<c:forEach var="alluvus" items="${alluvad}">
+											<tr>
+												<td><a href="V2?ID=<c:out value='${alluvus.id}' />">
+														<c:out value='${alluvus.nimetus}' />
+												</a></td>
+												<td align='right'><input type="hidden" name="alluv"
+													value="<c:out value='${alluvus.id}' />"> <input
+													type='submit' value='eemalda'></td>
+											</tr>
+										</c:forEach>
+										<tr>
+											<td colspan="2" align='right'><input type="button"
+												value="lisa"
+												onclick='window.location = "LisaAdminAlluv?id=<c:out value='${yksus.id}' />"'>
+											</td>
+									</table>
+								</form>
+							</td>
+						</tr>
+					</table>
 				</c:forEach>
-			</table>
-
-			<table>
-				<c:forEach var="alluvus" items="${alluvad}">
-					<tr>
-						<td><input name="alluv"
-							value="<c:out value='${alluvus.nimetus}' />"> <input
-							type='submit' value='eemalda'></td>
-					</tr>
-				</c:forEach>
-			</table>
-
-
-			</p>
+			<p>
 		</div>
 	</div>
 </body>
