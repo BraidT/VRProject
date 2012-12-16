@@ -1,7 +1,6 @@
 package model;
 
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -22,14 +21,13 @@ import org.apache.commons.dbutils.DbUtils;
  */
 public class V1 extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	private final String connectionString = "jdbc:hsqldb:file:C://VRP//Project;shutdown=true";
+	final String connectionString = "jdbc:hsqldb:file:${user.home}/i377/Team09d/db;shutdown=true";
 
 	/**
 	 * @see HttpServlet#HttpServlet()
 	 */
 	public V1() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
 
 	public void init() throws ServletException {
@@ -87,27 +85,20 @@ public class V1 extends HttpServlet {
 		Connection conn = null;
 		PreparedStatement ps = null;
 		request.setCharacterEncoding("UTF-8");
-		PrintWriter out = response.getWriter();
-		System.out.println(" deletinhh!");
 		if (request.getParameter("alluv") != null) {
-			System.out.println("alluv is not null");
 			int alluv = Integer.parseInt(request.getParameter("alluv"));
-			out.println("alluv " + alluv);
 			int ylemus = Integer.parseInt(request.getParameter("ylemus"));
-			out.println("ylev " + ylemus);
 
 			try {
 				conn = DriverManager.getConnection(connectionString);
-				
+
 				ps = conn.prepareStatement("update VOIMALIK_ALLUVUS "
 						+ "set suletud = TODAY, " + "sulgeja = 'admin' "
 						+ "where riigi_admin_yksuse_liik_id = ? "
 						+ "AND riigi_admin_yksuse_alluva_liik_id = ?");
 				ps.setInt(1, ylemus);
 				ps.setInt(2, alluv);
-
-				int rowCount = ps.executeUpdate();
-				System.out.println(rowCount + " rows updated!");
+				ps.executeUpdate();
 			} catch (SQLException e) {
 				throw new RuntimeException(e);
 			} finally {
@@ -122,15 +113,12 @@ public class V1 extends HttpServlet {
 			String kood = request.getParameter("kood");
 			String nimetus = request.getParameter("nimetus");
 			String kommentaar = request.getParameter("kommentaar");
-			System.out.println(" rows updsvacaated!");
 			try {
 				conn = DriverManager.getConnection(connectionString);
 
 				ps = conn.prepareStatement("update RIIGI_ADMIN_YKSUSE_LIIK "
-						+ "set kood = ?, "
-						+ "nimetus = ?, "
-						+ "kommentaar = ?, "
-						+ "muutja = ?, "
+						+ "set kood = ?, " + "nimetus = ?, "
+						+ "kommentaar = ?, " + "muutja = ?, "
 						+ "muudetud = TODAY "
 						+ "where riigi_admin_yksuse_liik_ID = ?");
 				ps.setString(1, kood);
@@ -138,20 +126,16 @@ public class V1 extends HttpServlet {
 				ps.setString(3, kommentaar);
 				ps.setString(4, "admin");
 				ps.setInt(5, id);
-
-				int rowCount = ps.executeUpdate();
-				System.out.println(rowCount + " rows updated!");
+				ps.executeUpdate();
 			} catch (SQLException e) {
 				throw new RuntimeException(e);
 			} finally {
 				DbUtils.closeQuietly(ps);
 				DbUtils.closeQuietly(conn);
 			}
-
 			String redirectURL = "V1?ID=" + id;
 			response.sendRedirect(redirectURL);
 		}
-
 	}
 
 	private List<RiigiAdminYksuseLiik> leiaYksusteLiigid(int ID)
@@ -171,11 +155,9 @@ public class V1 extends HttpServlet {
 			RiigiAdminYksuseLiik riigiAdminYksuseLiik = new RiigiAdminYksuseLiik();
 			while (rset.next()) {
 				riigiAdminYksuseLiik.setId(rset.getInt(1));
-				System.out.println("id = "+rset.getInt(1));
 				riigiAdminYksuseLiik.setKood(rset.getString(2));
 				riigiAdminYksuseLiik.setNimetus(rset.getString(3));
 				riigiAdminYksuseLiik.setKommentaar(rset.getString(4));
-
 				riigiAdminYksuseLiigid.add(riigiAdminYksuseLiik);
 			}
 
@@ -195,11 +177,11 @@ public class V1 extends HttpServlet {
 
 		ResultSet rset = null;
 		PreparedStatement ps = null;
+		ResultSet rsetAlluvad = null;
+		PreparedStatement psAlluvad = null;
 		try {
-			ResultSet rsetAlluvad = null;
-			PreparedStatement psAlluvad = null;
 			ps = conn
-					.prepareStatement("select riigi_admin_yksuse_alluva_liik_id from VOIMALIK_ALLUVUS where riigi_admin_yksuse_liik_id=?");
+					.prepareStatement("select riigi_admin_yksuse_alluva_liik_id from VOIMALIK_ALLUVUS where riigi_admin_yksuse_liik_id=? and suletud IS NULL");
 
 			ps.setInt(1, ID);
 			rset = ps.executeQuery();
@@ -219,13 +201,15 @@ public class V1 extends HttpServlet {
 			throw new RuntimeException(e);
 		} finally {
 			DbUtils.closeQuietly(rset);
+			DbUtils.closeQuietly(ps);
+			DbUtils.closeQuietly(rsetAlluvad);
+			DbUtils.closeQuietly(psAlluvad);
 			DbUtils.closeQuietly(conn);
 		}
 		return alluvad;
 	}
 
 	private List<RiigiAdminYksuseLiik> leiaYlemused(int ID) throws SQLException {
-
 		List<RiigiAdminYksuseLiik> ylemused = new ArrayList<RiigiAdminYksuseLiik>();
 		Connection conn = DriverManager.getConnection(connectionString);
 

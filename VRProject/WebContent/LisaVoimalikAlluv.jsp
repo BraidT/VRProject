@@ -10,29 +10,45 @@
 <body>
 	<div id="sisu">
 		<div id="vorm">
-			<%-- <jsp:include page="pealdis.jsp"/> --%>
+			<jsp:include page="pealdis.jsp"/>
 			Lisa alluvusi:
 			<p>
 			<form method='POST' action='' accept-charset="UTF-8">
-				<c:forEach var="yksuseLiik" items="${yksuseLiigid}">
-					<input type="checkbox" name="alluv_id"
-						value="<c:out value='${yksuseLiik.id}' />">
-					<a href="V2?ID=<c:out value='${yksuseLiik.id}' />"> <c:out
-							value="${yksuseLiik.nimetus}" />
-					</a>
-					<input type="textarea" name="kommentaar"
-						value="<c:out value='${yksuseLiik.kommentaar}' />">
-					<br>
-					<input type="hidden" name="id"
-						value="<c:out value='${yksuseLiik.id}' />">
+				<table>
+					<tr class="Alluv">
+						<td>Vali</td>
+						<td>Alluv</td>
+						<td>Kommentaar</td>
+					</tr>
+					<c:forEach var="yksuseLiik" items="${yksuseLiigid}">
+						<tr>
+							<td><input type="checkbox" name="alluv_id"
+								value="<c:out value='${yksuseLiik.id}' />"></td>
 
-					<c:if test="${empty yksuseLiik}">
-						Ühtegi alluvat ei saa hetkel lisada! :(
-					</c:if>
-					<c:if test="${not empty yksuseLiik}">
-						<input type='submit' value='lisa'>
-					</c:if>
-				</c:forEach>
+							<td><a href="V1?ID=<c:out value='${yksuseLiik.id}' />">
+									<c:out value="${yksuseLiik.nimetus}" />
+							</a></td>
+							<td><input type="textarea" name="kommentaar"
+								value="<c:out value='${yksuseLiik.kommentaar}' />"></td>
+						</tr>
+						<tr>
+							<td><input type="hidden" name="id"
+								value="<c:out value='${yksuseLiik.id}' />"></td>
+							<td></td>
+							<td><c:if test="${empty yksuseLiik}">
+									<input name="nimetus" type="text" value="Ühtegi alluvat ei saa hetkel lisada!">
+								</c:if></td>
+						</tr>
+						<tr>
+							<td></td>
+							<td></td>
+							<td><c:if test="${not empty yksuseLiik}">
+									<input type='submit' value='lisa'>
+								</c:if></td>
+						</tr>
+					</c:forEach>
+				</table>
+
 			</form>
 		</div>
 	</div>

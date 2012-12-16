@@ -12,7 +12,7 @@
 <body>
 	<div id="sisu">
 		<div id="vorm">
-			<%-- <jsp:include page="pealdis.jsp"/> --%>
+			<jsp:include page="pealdis.jsp"/>
 			<p>
 				<c:forEach var="yksuseLiik" items="${yksusteLiigid}">
 
@@ -52,9 +52,7 @@
 									</table>
 									<input type="hidden" name="id"
 										value="<c:out value='${yksuseLiik.id}' />">
-									<div align="center">
-										<input type='submit' value='salvesta vorm' />
-									</div>
+
 								</form>
 
 							</td>
@@ -67,13 +65,13 @@
 										</tr>
 										<c:forEach var="alluvus" items="${alluvad}">
 											<tr>
-												<td><a href="V2?ID=<c:out value='${alluvus.id}' />">
+												<td><a href="V1?ID=<c:out value='${alluvus.id}' />">
 														<c:out value='${alluvus.nimetus}' />
 												</a></td>
 												<td align='right'><input type="hidden" name="alluv"
 													value="<c:out value='${alluvus.id}' />"> <input
 													type="hidden" name="ylemus"
-													value="<c:out value='${ylemus.id}' />"><input
+													value="<c:out value='${yksuseLiik.id}' />"><input
 													type='submit' value='eemalda'></td>
 											</tr>
 										</c:forEach>
@@ -87,10 +85,16 @@
 							</td>
 						</tr>
 					</table>
+
 				</c:forEach>
 			<p>
+			<div align="center">
+				<input type='submit' value='salvesta' /> <input type="button"
+					value="loobu" onclick='window.location = "index.jsp"'>
+			</div>
 		</div>
 	</div>
+
 </body>
 
 </html>

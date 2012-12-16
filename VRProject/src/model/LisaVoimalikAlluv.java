@@ -21,14 +21,12 @@ import org.apache.commons.dbutils.DbUtils;
  */
 public class LisaVoimalikAlluv extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	private final String connectionString = "jdbc:hsqldb:file:C://VRP//Project;shutdown=true";
-
+	private final String connectionString = "jdbc:hsqldb:file:${user.home}/i377/Team09d/db;shutdown=true";
 	/**
 	 * @see HttpServlet#HttpServlet()
 	 */
 	public LisaVoimalikAlluv() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
 
 	public void init() throws ServletException {
@@ -46,11 +44,9 @@ public class LisaVoimalikAlluv extends HttpServlet {
 	protected void doGet(HttpServletRequest request,
 			HttpServletResponse response) throws ServletException, IOException {
 		int id = Integer.parseInt(request.getParameter("id"));
-		System.out.println("lisa alluv @" + id);
 
 		List<RiigiAdminYksuseLiik> yksuseLiigid = null;
 		try {
-			System.out.println("leian liigid");
 			yksuseLiigid = leiaYksuseLiigid(id);
 		} catch (SQLException e) {
 			throw new RuntimeException(e);
@@ -70,11 +66,9 @@ public class LisaVoimalikAlluv extends HttpServlet {
 		String kommentaar[] = request.getParameterValues("kommentaar");
 		int id = Integer.parseInt(request.getParameter("id"));
 		if (alluv_id != null) {
-			System.out.println(request.getParameter("id") + " uued alluvad: ");
 			Connection conn = null;
 			PreparedStatement ps = null;
 			ResultSet rset = null;
-			System.out.println("Alluv id length = " + alluv_id.length);
 			for (int i = 0; i < alluv_id.length; i++) {
 				try {
 					conn = DriverManager.getConnection(connectionString);
@@ -86,8 +80,7 @@ public class LisaVoimalikAlluv extends HttpServlet {
 					ps.setInt(1, id);
 					ps.setInt(2, Integer.parseInt(alluv_id[i]));
 					ps.setString(3, kommentaar[i]);
-					int rowCount = ps.executeUpdate();
-					System.out.println(rowCount + " rows updated!");
+					ps.executeUpdate();
 				} catch (SQLException e) {
 					throw new RuntimeException(e);
 				} finally {
@@ -96,9 +89,7 @@ public class LisaVoimalikAlluv extends HttpServlet {
 					DbUtils.closeQuietly(rset);
 				}
 			}
-		} else {
-			System.out.println("<b>none<b>");
-		}
+		} 
 		String redirectURL = "V1?ID=" + id;
 		response.sendRedirect(redirectURL);
 
@@ -118,9 +109,9 @@ public class LisaVoimalikAlluv extends HttpServlet {
 					.prepareStatement("select * from RIIGI_ADMIN_YKSUSE_LIIK "
 							+ "where riigi_admin_yksuse_liik_id != ?"
 							+ " and riigi_admin_yksuse_liik_id not in "
-							+ "(select riigi_admin_yksuse_alluva_liik_id from VOIMALIK_ALLUVUS)"
+							+ "(select riigi_admin_yksuse_alluva_liik_id from VOIMALIK_ALLUVUS where suletud is null)"
 							+ "and riigi_admin_yksuse_liik_id not in "
-							+ "(select riigi_admin_yksuse_liik_id from VOIMALIK_ALLUVUS)");
+							+ "(select riigi_admin_yksuse_liik_id from VOIMALIK_ALLUVUS where suletud is null)");
 
 			ps.setInt(1, id);
 
