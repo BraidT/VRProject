@@ -7,6 +7,7 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -86,72 +87,7 @@ public class V1 extends HttpServlet {
 			HttpServletResponse response) throws ServletException, IOException {
 		Connection conn = null;
 		PreparedStatement ps = null;
-		request.setCharacterEncoding("UTF-8");
-		PrintWriter out = response.getWriter();
-		System.out.println(" deletinhh!");
-		if (request.getParameter("alluv") != null) {
-			System.out.println("alluv is not null");
-			int alluv = Integer.parseInt(request.getParameter("alluv"));
-			out.println("alluv " + alluv);
-			int ylemus = Integer.parseInt(request.getParameter("ylemus"));
-			out.println("ylev " + ylemus);
-
-			try {
-				conn = DriverManager.getConnection(connectionString);
-				
-				ps = conn.prepareStatement("update VOIMALIK_ALLUVUS "
-						+ "set suletud = TODAY, " + "sulgeja = 'admin' "
-						+ "where riigi_admin_yksuse_liik_id = ? "
-						+ "AND riigi_admin_yksuse_alluva_liik_id = ?");
-				ps.setInt(1, ylemus);
-				ps.setInt(2, alluv);
-
-				int rowCount = ps.executeUpdate();
-				System.out.println(rowCount + " rows updated!");
-			} catch (SQLException e) {
-				throw new RuntimeException(e);
-			} finally {
-				DbUtils.closeQuietly(ps);
-				DbUtils.closeQuietly(conn);
-			}
-			String redirectURL = "V1?ID=" + ylemus;
-			response.sendRedirect(redirectURL);
-		} else {
-			System.out.println(" alluv = null");
-			int id = Integer.parseInt(request.getParameter("id"));
-			String kood = request.getParameter("kood");
-			String nimetus = request.getParameter("nimetus");
-			String kommentaar = request.getParameter("kommentaar");
-			System.out.println(" rows updsvacaated!");
-			try {
-				conn = DriverManager.getConnection(connectionString);
-
-				ps = conn.prepareStatement("update RIIGI_ADMIN_YKSUSE_LIIK "
-						+ "set kood = ?, "
-						+ "nimetus = ?, "
-						+ "kommentaar = ?, "
-						+ "muutja = ?, "
-						+ "muudetud = TODAY "
-						+ "where riigi_admin_yksuse_liik_ID = ?");
-				ps.setString(1, kood);
-				ps.setString(2, nimetus);
-				ps.setString(3, kommentaar);
-				ps.setString(4, "admin");
-				ps.setInt(5, id);
-
-				int rowCount = ps.executeUpdate();
-				System.out.println(rowCount + " rows updated!");
-			} catch (SQLException e) {
-				throw new RuntimeException(e);
-			} finally {
-				DbUtils.closeQuietly(ps);
-				DbUtils.closeQuietly(conn);
-			}
-
-			String redirectURL = "V1?ID=" + id;
-			response.sendRedirect(redirectURL);
-		}
-
+		
 	}
 
 	private List<RiigiAdminYksuseLiik> leiaYksusteLiigid(int ID)
@@ -171,7 +107,6 @@ public class V1 extends HttpServlet {
 			RiigiAdminYksuseLiik riigiAdminYksuseLiik = new RiigiAdminYksuseLiik();
 			while (rset.next()) {
 				riigiAdminYksuseLiik.setId(rset.getInt(1));
-				System.out.println("id = "+rset.getInt(1));
 				riigiAdminYksuseLiik.setKood(rset.getString(2));
 				riigiAdminYksuseLiik.setNimetus(rset.getString(3));
 				riigiAdminYksuseLiik.setKommentaar(rset.getString(4));
@@ -232,6 +167,7 @@ public class V1 extends HttpServlet {
 		ResultSet rset = null;
 		PreparedStatement ps = null;
 		try {
+			System.out.println("Starting query");
 			ResultSet rsetAlluvad = null;
 			PreparedStatement psAlluvad = null;
 			ps = conn
@@ -241,13 +177,17 @@ public class V1 extends HttpServlet {
 			rset = ps.executeQuery();
 			RiigiAdminYksuseLiik riigiAdminYksuseLiik = new RiigiAdminYksuseLiik();
 			while (rset.next()) {
+				System.out.println("dsd");
 				psAlluvad = conn
 						.prepareStatement("select riigi_admin_yksuse_liik_id, nimetus from RIIGI_ADMIN_YKSUSE_LIIK where riigi_admin_yksuse_liik_id = ?");
 				psAlluvad.setInt(1, rset.getInt(1));
 				rsetAlluvad = psAlluvad.executeQuery();
 				while (rsetAlluvad.next()) {
+					System.out.println("mingid ylemused on");
 					riigiAdminYksuseLiik.setId(rsetAlluvad.getInt(1));
 					riigiAdminYksuseLiik.setNimetus(rsetAlluvad.getString(2));
+					System.out.println("riigiAdminYksuseLiik nimetus = "
+							+ riigiAdminYksuseLiik.getNimetus());
 					ylemused.add(riigiAdminYksuseLiik);
 				}
 			}
