@@ -73,7 +73,7 @@ public class V2 extends HttpServlet {
 		//int liik_id = 0;
 		
 		Connection conn = DriverManager
-				.getConnection("jdbc:hsqldb:file:x://ITK//Java//Veebirakendused//DB//Projekt;shutdown=true");
+				.getConnection("jdbc:hsqldb:file:${user.home}/i377/Team09d/db;shutdown=true");
 
 		PreparedStatement ps = null;
 		ResultSet rset = null;
@@ -122,7 +122,7 @@ private List<AdminAlluvus> vaataAlluvusi(int ID) throws SQLException {
 		List<AdminAlluvus> alluvused = new ArrayList<AdminAlluvus>();
 		
 		Connection conn = DriverManager
-				.getConnection("jdbc:hsqldb:file:x://ITK//Java//Veebirakendused//DB//Projekt;shutdown=true");
+				.getConnection("jdbc:hsqldb:file:${user.home}/i377/Team09d/db;shutdown=true");
 
 		PreparedStatement ps = null;
 		ResultSet rset = null;
@@ -174,7 +174,7 @@ private List<AdminAlluvus> vaataAlluvusi(int ID) throws SQLException {
 			
 			try {
 				conn = DriverManager
-						.getConnection("jdbc:hsqldb:file:x://ITK//Java//Veebirakendused//DB//Projekt;shutdown=true");
+						.getConnection("jdbc:hsqldb:file:${user.home}/i377/Team09d/db;shutdown=true");
 									
 			  ps = conn.prepareStatement("update ADMIN_ALLUVUS "
 					 + "set suletud = TODAY, "
@@ -208,7 +208,7 @@ private List<AdminAlluvus> vaataAlluvusi(int ID) throws SQLException {
 	
 			try {
 				conn = DriverManager
-						.getConnection("jdbc:hsqldb:file:x://ITK//Java//Veebirakendused//DB//Projekt;shutdown=true");
+						.getConnection("jdbc:hsqldb:file:${user.home}/i377/Team09d/db;shutdown=true");
 									
 			  ps = conn.prepareStatement("update RIIGI_ADMIN_YKSUS "
 					 + "set kood = ?, "

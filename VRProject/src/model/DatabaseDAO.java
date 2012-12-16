@@ -20,8 +20,7 @@ public class DatabaseDAO extends Servlet {
 	private Connection connection;
 	private Statement statement;
 
-	// final String connectionString = "jdbc:hsqldb:file:${user.home}/i377/Team09d/db;shutdown=true";
-	final String connectionString = "jdbc:hsqldb:file:x://ITK//Java//Veebirakendused//DB//Projekt;shutdown=true";
+	final String connectionString = "jdbc:hsqldb:file:${user.home}/i377/Team09d/db;shutdown=true";
 	
 	public void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {

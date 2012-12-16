@@ -55,7 +55,7 @@ private List<RiigiAdminYksus> vaataYksuseid(int id) throws SQLException {
 		List<RiigiAdminYksus> yksused = new ArrayList<RiigiAdminYksus>();
 		
 		Connection conn = DriverManager
-				.getConnection("jdbc:hsqldb:file:x://ITK//Java//Veebirakendused//DB//Projekt;shutdown=true");
+				.getConnection("jdbc:hsqldb:file:${user.home}/i377/Team09d/db;shutdown=true");
 
 		PreparedStatement ps = null;
 		ResultSet rset = null;
@@ -140,7 +140,7 @@ private List<RiigiAdminYksus> vaataYksuseid(int id) throws SQLException {
 		      {
 		    	  try {
 	    		  conn = DriverManager
-	    					.getConnection("jdbc:hsqldb:file:x://ITK//Java//Veebirakendused//DB//Projekt;shutdown=true");
+	    					.getConnection("jdbc:hsqldb:file:${user.home}/i377/Team09d/db;shutdown=true");
 
 	    		  ps = conn.prepareStatement("INSERT INTO ADMIN_ALLUVUS("
 				+ "avaja, avatud, muutja, muudetud, sulgeja, suletud, alates, kuni, kommentaar, riigi_admin_yksuse_id, riigi_admin_yksuse_alluva_id) VALUES("

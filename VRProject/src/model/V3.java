@@ -95,7 +95,7 @@ public class V3 extends HttpServlet {
 		List<RiigiAdminYksuseLiik> liigid = new ArrayList<RiigiAdminYksuseLiik>();
 		
 		Connection conn = DriverManager
-				.getConnection("jdbc:hsqldb:file:x://ITK//Java//Veebirakendused//DB//Projekt;shutdown=true");
+				.getConnection("jdbc:hsqldb:file:${user.home}/i377/Team09d/db;shutdown=true");
 
 		Statement stmt = null;
 		ResultSet rset = null;
@@ -133,7 +133,7 @@ public class V3 extends HttpServlet {
 			List<RiigiAdminYksus> yksused = new ArrayList<RiigiAdminYksus>();
 			
 			Connection conn = DriverManager
-					.getConnection("jdbc:hsqldb:file:x://ITK//Java//Veebirakendused//DB//Projekt;shutdown=true");
+					.getConnection("jdbc:hsqldb:file:${user.home}/i377/Team09d/db;shutdown=true");
 
 			PreparedStatement ps = null;
 			ResultSet rset = null;
