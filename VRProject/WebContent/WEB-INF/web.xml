@@ -94,4 +94,14 @@
     <servlet-name>LisaAdminAlluv</servlet-name>
     <url-pattern>/LisaAdminAlluv</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>V3</display-name>
+    <servlet-name>V3</servlet-name>
+    <servlet-class>model.V3</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>V3</servlet-name>
+    <url-pattern>/V3</url-pattern>
+  </servlet-mapping>
 </web-app>

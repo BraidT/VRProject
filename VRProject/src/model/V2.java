@@ -31,7 +31,10 @@ public class V2 extends HttpServlet {
        
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		int ID = Integer.parseInt(request.getParameter("ID"));
+		int ID = 1;
+		if(request.getParameter("ID") !=null) {
+			ID = Integer.parseInt(request.getParameter("ID"));
+		}
 				
 		List<RiigiAdminYksus> yksused = null;
 		try {

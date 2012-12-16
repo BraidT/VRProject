@@ -13,11 +13,11 @@
    <div id="vorm">
    <ul>
 	   		<li>
-				 <a href='#' onmouseover='javascript:v(1)'>V1</a> | 
-				 <a href='#' onmouseover='javascript:v(2)'>V2</a> | 
-				 <a href='#' onmouseover='javascript:v(3)'>V3</a> | 
-				 <a href='#' onmouseover='javascript:v(4)'>V4</a> | 
-				 <a href='#' onmouseover='javascript:v(5)'>V5</a>
+				 <a href='V1' onmouseover='javascript:v(1)'>V1</a> | 
+				 <a href='V2' onmouseover='javascript:v(2)'>V2</a> | 
+				 <a href='V3' onmouseover='javascript:v(3)'>V3</a> | 
+				 <a href='V4' onmouseover='javascript:v(4)'>V4</a> | 
+				 <a href='V5' onmouseover='javascript:v(5)'>V5</a>
 			</li>
 			<li><a href='VaataAdminAlluvusi'>VaataAdminAlluvusi</a> uus!</li>
 			<li><a href='VaataRiigiAdminYksusi'>VaataRiigiAdminYksusi</a> uus!</li>

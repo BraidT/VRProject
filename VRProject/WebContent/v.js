@@ -1,10 +1,10 @@
-function v(id) {
+﻿function v(id) {
 	 for (var i=1;i<6;i++) {
 		 var vid = 'v' + i;
 	     if (i == id) {
              showhide = 'block';
              var txt=document.getElementById(vid)
-             txt.innerHTML='<img src=\"pildid/'+vid+'.png\">';
+             txt.innerHTML='<a title=\"'+vid+' eelvaade, kliki lingil või pildid et näha vormi\" href=\"V'+id+'\"><img src=\"pildid/'+vid+'.png\"></a>';
         }
         else {
              showhide = 'none';
