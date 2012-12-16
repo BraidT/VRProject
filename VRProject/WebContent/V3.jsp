@@ -10,14 +10,8 @@
 	</head>
 	<body>	
  <div id="sisu">
-   <a href='./'><img src='pildid/ITK.png' align='right'></a>
    <div id="vorm">
-      <ul>
-      		<li><a href='VaataAdminAlluvusi'>VaataAdminAlluvusi</a> uus!</li>
-			<li><a href='VaataRiigiAdminYksusi'>VaataRiigiAdminYksusi</a> uus!</li>
-			<li><a href='VaataRiigiAdminYksuseLiike'>VaataRiigiAdminYksuseLiike</a> uus!</li>
-			<li><a href='VaataVoimalikeAlluvusi'>VaataVoimalikeAlluvusi</a> uus!</li>
-		</ul>
+   	<jsp:include page="pealdis.jsp"/>
 		 Vaata admin üksuste alluvusraport<p>
 		 <form method='POST' action='' accept-charset="UTF-8">
 		 <table width="300px">

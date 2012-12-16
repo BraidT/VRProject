@@ -66,16 +66,6 @@
   </servlet>
   <servlet>
     <description></description>
-    <display-name>V1</display-name>
-    <servlet-name>V1</servlet-name>
-    <servlet-class>model.V1</servlet-class>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>V1</servlet-name>
-    <url-pattern>/V1</url-pattern>
-  </servlet-mapping>
-  <servlet>
-    <description></description>
     <display-name>V2</display-name>
     <servlet-name>V2</servlet-name>
     <servlet-class>model.V2</servlet-class>

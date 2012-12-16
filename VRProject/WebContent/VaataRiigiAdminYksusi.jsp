@@ -10,15 +10,9 @@
 	</head>
 	<body>	
  <div id="sisu">
-   <a href='./'><img src='pildid/ITK.png' align='right'></a>
-   <div id="vorm">
-	      <ul>
-			<li><a href='VaataAdminAlluvusi'>VaataAdminAlluvusi</a> uus!</li>
-			<li><a href='VaataRiigiAdminYksusi'>VaataRiigiAdminYksusi</a> uus!</li>
-			<li><a href='VaataRiigiAdminYksuseLiike'>VaataRiigiAdminYksuseLiike</a> uus!</li>
-			<li><a href='VaataVoimalikeAlluvusi'>VaataVoimalikeAlluvusi</a> uus!</li>
-		</ul>
-		<div id='andmed'>
+   	<div id="vorm">
+	   <jsp:include page="pealdis.jsp"/>
+	   		<div id='andmed'>
     Vaata riigi admin üksusi:<p>
 		<table width='850px'>
 			<tr class="pealkiri">
