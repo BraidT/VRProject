@@ -37,6 +37,8 @@ public class DatabaseDAO extends Servlet {
 			DbUtils.closeQuietly(connection);
 		}
 		response.getWriter().println("great success!");
+		String redirectURL = "./?loodud=jah";
+	    response.sendRedirect(redirectURL);
 	}
 
 	@Override

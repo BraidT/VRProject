@@ -55,6 +55,7 @@ input { font-size:13px; color: #5E5E5E; font-family: Arial; border: double; bord
 }
 
 a:link {color: #104E8B;text-decoration: none; font-family: Arial;}
+a.db {color: red}
 a:visited {color:#104E8B;text-decoration: none; font-family: Arial;}
 a:active {color: #104E8B;text-decoration: none; font-family: Arial;}
 a:hover {text-decoration: underline}

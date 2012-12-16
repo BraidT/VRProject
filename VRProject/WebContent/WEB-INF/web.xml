@@ -104,4 +104,14 @@
     <servlet-name>V3</servlet-name>
     <url-pattern>/V3</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>Index</display-name>
+    <servlet-name>Index</servlet-name>
+    <servlet-class>model.Index</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Index</servlet-name>
+    <url-pattern>/Index</url-pattern>
+  </servlet-mapping>
 </web-app>
